@@ -9,6 +9,7 @@ router.route('/')
 
 router.route("/:id")
 .get(tourController.getTourById)
+.patch(tourController.updateById)
 
 
 module.exports = router;

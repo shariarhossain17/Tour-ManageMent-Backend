@@ -1,4 +1,4 @@
-const { creteTourModel, getTourModelById } = require("../services/tour.services")
+const { creteTourModel, getTourModelById, updateTourModelById } = require("../services/tour.services")
 
 
 module.exports.getTourById = async (req,res,next) => {
@@ -29,6 +29,21 @@ module.exports.createPost =async (req,res,next) => {
         res.status(400).json({
             status:false,
             message:"data insert failed",
+            message:error.message
+        })
+    }
+};
+module.exports.updateById =async (req,res,next) => {
+    try {
+        const result = await updateTourModelById(req.body,req.params.id)
+        res.status(200).json({
+            status:true,
+            message:"update success",
+        })
+    } catch (error) {
+        res.status(400).json({
+            status:false,
+            message:"update failed",
             message:error.message
         })
     }
