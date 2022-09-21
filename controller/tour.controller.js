@@ -15,8 +15,16 @@ const {
 module.exports.getTour = async (req, res, next) => {
     try {
 
-    
-      const result = await getTourModel();
+    const queries = {}
+    if(req.query.sort){
+        const sortBy = req.query.sort
+        queries.sortBy = sortBy
+    }
+    if(req.query.fields){
+        const field = req.query.fields.split(',').join(' ')
+        queries.field = field
+    }
+      const result = await getTourModel(queries);
       res.status(200).json({
         status: true,
         message: "data get success",

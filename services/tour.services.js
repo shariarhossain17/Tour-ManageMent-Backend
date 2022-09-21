@@ -4,8 +4,10 @@ const Tour = require("../models/tourmanage.model");
  *
  * @returns get all tour
  */
-exports.getTourModel = async () => {
-  const result = await Tour.find({});
+exports.getTourModel = async (queries) => {
+  const result = await Tour.find({})
+  .select(queries.field)
+  .sort(queries.sortBy)
   return result;
 };
 

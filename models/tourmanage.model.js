@@ -19,7 +19,7 @@ const tourManageSchema = mongoose.Schema(
         required:[true,"provide price"],
         min:[0,"price can't be negative"]
     },
-    img:{
+    image:{
         type:String,
         required:[true,"please provide image"]
     },
