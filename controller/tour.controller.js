@@ -24,6 +24,13 @@ module.exports.getTour = async (req, res, next) => {
         const field = req.query.fields.split(',').join(' ')
         queries.field = field
     }
+
+    if(req.query.page){
+        const {page=0,limit=5} = req.query
+        const skip = (page -1) * parseInt(limit);
+        queries.skip = skip;
+        queries.limit=parseInt(limit)
+      }
       const result = await getTourModel(queries);
       res.status(200).json({
         status: true,
