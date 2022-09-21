@@ -29,7 +29,7 @@ exports.getTourModelById = async (id) => {
  * @returns trending tour
  */
 exports.getTrendingTourModel = async () => {
-  const result = await Tour.find().sort({ views: 1 }).limit(3);
+  const result = await Tour.find().sort({ views: -1 }).limit(3);
   return result;
 };
 /**
