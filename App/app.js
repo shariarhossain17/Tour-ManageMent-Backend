@@ -13,6 +13,9 @@ const useTourRoute = require('../routes/tour.route')
 
 app.use('/api/v1/',useTourRoute)
 
+app.get('/',(req,res)=> {
+    res.status(200).json({message:"surver running"})
+})
 app.get('/health',(req,res)=>{
     res.status(200).json("health okk")
 })
