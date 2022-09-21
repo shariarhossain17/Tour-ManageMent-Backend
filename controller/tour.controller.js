@@ -4,8 +4,32 @@ const {
   updateTourModelById,
   getTrendingTourModel,
   getCheapestTourModel,
+  getTourModel,
 } = require("../services/tour.services");
 
+
+/**
+ * 
+ * @returns all the tour
+ */
+module.exports.getTour = async (req, res, next) => {
+    try {
+
+    
+      const result = await getTourModel();
+      res.status(200).json({
+        status: true,
+        message: "data get success",
+        data: result,
+      });
+    } catch (error) {
+      res.status(400).json({
+        status: false,
+        message: "data get  failed",
+        message: error.message,
+      });
+    }
+  };
 
 /**
  * 

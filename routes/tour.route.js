@@ -15,6 +15,7 @@ router.route("/tour/cheapest")
 
 router.route('/tours')
 .post(tourController.createPost)
+.get(tourController.getTour)
 
 
 
